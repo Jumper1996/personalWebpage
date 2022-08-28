@@ -1,0 +1,74 @@
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+import { Button, ButtonGroup } from '@mui/material';
+import SaveIcon from '@mui/icons-material/Save'
+import DeleteIcon from '@mui/icons-material/Delete'
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import TextField from '@mui/material/TextField';
+
+
+function CheckboxExample() {
+  const [checked, setChecked] = React.useState(false)
+  return (
+    <FormControlLabel
+      control={<Checkbox
+        checked={checked}
+        icon={<SaveIcon />}
+        checkedIcon={<DeleteIcon />}
+        onChange={(e) => setChecked(e.target.checked)}
+      />}
+      label="Free Roblux"
+    />
+  )
+}
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <TextField
+          variant='outlined'
+          color='secondary'
+          type="date"
+          label='The Date'
+          placeholder='XX-Abc-XXXX'
+        />
+        <CheckboxExample />
+        <img src={logo} className="App-logo" alt="logo" />
+        <ButtonGroup variant="contained">
+          <Button
+            startIcon={<SaveIcon />}
+            size="large"
+            enabled
+            onClick={() => alert('No Creds')}
+            href="/run"
+            color="primary"
+            style={{
+              fontSize: 35,
+              backgroundColor: '#8a0e0e'
+            }}
+          >
+            ENTER
+          </Button>
+          <Button
+            endIcon={<DeleteIcon />}
+            size="large"
+            enabled
+            onClick={() => alert('Bye')}
+            href="/butt"
+            color="secondary"
+            style={{
+              fontSize: 24
+            }}
+          >
+            LEAVE
+          </Button>
+        </ButtonGroup>
+      </header>
+    </div>
+  );
+}
+
+export default App;
